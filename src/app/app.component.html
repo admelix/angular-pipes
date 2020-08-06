@@ -17,13 +17,18 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>{{ nombre2 }}</td>
+                        <td>capitalizado/personalizado</td>
+                        <td>{{ nombre2 | capitalizado }}</td>
+                    </tr>
+                    <tr>
                         <td>{{ nombre }}</td>
                         <td>uppercase</td>
                         <td>{{ nombre | uppercase }}</td>
                     </tr>
                     <tr>
                         <td>{{ nombre }}</td>
-                        <td>uppercase</td>
+                        <td>lowercase</td>
                         <td>{{ nombre | lowercase }}</td>
                     </tr>
                     <tr>
@@ -100,11 +105,18 @@
                         <td>{{ fecha}}</td>
                         <td>date:'MMMM - dd': '': 'en'
                             <br>
-                            <button class="btn btn-primary mr1" (click)="idioma = 'es-Pe'">Espa;ol</button>
-                            <button class="btn btn-primary mr1" (click)="idioma = 'en'">Ingles</button>
-                            <button class="btn btn-primary mr1" (click)="idioma = 'de-AT'">Aleman</button>
+                            <button class="btn btn-primary mr1" (click)="idioma = 'es-PE'">Espa;ol</button>
+                            <button class="btn btn-secondary mr1" (click)="idioma = 'en'">Ingles</button>
                         </td>
                         <td>{{ fecha | date:'MMMM - dd': '': idioma}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ pass}}</td>
+                        <td>contrasena: {{ activar }}
+                            <br>
+                            <button class="btn btn-primary mr1" (click)="activar =! activar">mostrar / ocultar</button>
+                        </td>
+                        <td>{{ pass | mostrar:activar }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -125,5 +137,12 @@
             </pre>
         </div>
     </div>
+    <h3 class="mt-4">Domseguro</h3>
+    <hr>
 
+    <div class="row mb-5">
+        <div class="col">
+            <iframe width="560" height="315" [src]=" videoUrl | domseguro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
 </div>
