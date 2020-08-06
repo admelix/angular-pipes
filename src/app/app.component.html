@@ -1,23 +1,129 @@
-<h1 class="mt-3">Pipes <small>Angular</small></h1>
-<hr>
+<div class="container">
+    <h1 class="mt-3">Pipes <small>Angular</small></h1>
+    <hr>
+    <p>Los pipes son herramientas de angular que nos permiten cambiar de forma visual la informacion. como lo vemos en la tabla, podemos tener strings y modificar su aspecto visual, pero el valor no cambia. es muy util para dar formatos de fecha, tipos de
+        monedas, redondeos numericos etc. Aqui mostrare ejemplos de su uso</p>
 
-<div class="row">
-    <div class="col">
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Variable</th>
-                    <th>Pipe</th>
-                    <th>Salida</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ nombre }}</td>
-                    <td>uppercase</td>
-                    <td>{{ nombre | uppercase }}</td>
-                </tr>
-            </tbody>
-        </table>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Variable</th>
+                        <th>Pipe</th>
+                        <th>Salida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ nombre }}</td>
+                        <td>uppercase</td>
+                        <td>{{ nombre | uppercase }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ nombre }}</td>
+                        <td>uppercase</td>
+                        <td>{{ nombre | lowercase }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ nombre }}</td>
+                        <td>slice:3</td>
+                        <td>{{ nombre | slice:3 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ nombre }}</td>
+                        <td>slice:0:3</td>
+                        <td>{{ nombre | slice:0:3 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ arreglo }}</td>
+                        <td>slice:1:5</td>
+                        <td>{{ arreglo | slice:1:5 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ PI }}</td>
+                        <td>number</td>
+                        <td>{{ PI | number }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ PI }}</td>
+                        <td>number sin decimales</td>
+                        <td>{{ PI | number:'.0-0' }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ PI }}</td>
+                        <td>number con 2 decimales</td>
+                        <td>{{ PI | number:'.2-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ porcentaje }}</td>
+                        <td>percent</td>
+                        <td>{{ porcentaje | percent }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ porcentaje + 0.001 }}</td>
+                        <td>percent</td>
+                        <td>{{ porcentaje + 0.001 | percent }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ salario}}</td>
+                        <td>currency</td>
+                        <td>{{ salario | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ salario}}</td>
+                        <td>currency PEN</td>
+                        <td>{{ salario | currency:'PEN ': 'symbol-narrow' }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ valPromesa}}</td>
+                        <td>async</td>
+                        <td>{{ valPromesa | async }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ fecha}}</td>
+                        <td>date</td>
+                        <td>{{ fecha | date }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ fecha}}</td>
+                        <td>date:medium</td>
+                        <td>{{ fecha | date:'medium' }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ fecha}}</td>
+                        <td>date:short</td>
+                        <td>{{ fecha | date:'short' }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ fecha}}</td>
+                        <td>date:'MMMM - dd': '': 'en'
+                            <br>
+                            <button class="btn btn-primary mr1" (click)="idioma = 'es-Pe'">Espa;ol</button>
+                            <button class="btn btn-primary mr1" (click)="idioma = 'en'">Ingles</button>
+                            <button class="btn btn-primary mr1" (click)="idioma = 'de-AT'">Aleman</button>
+                        </td>
+                        <td>{{ fecha | date:'MMMM - dd': '': idioma}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4>Slice</h4>
+            <ul>
+                <li *ngFor="let item of arreglo | slice:5:10 ">{{ item }}</li>
+            </ul>
+        </div>
     </div>
+
+    <h3>Json</h3>
+    <hr>
+    <div class="row mb-5">
+        <div class="col">
+            <pre>
+                {{ objetoPersona | json}}
+            </pre>
+        </div>
+    </div>
+
 </div>
